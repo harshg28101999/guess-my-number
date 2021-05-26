@@ -1,15 +1,11 @@
 'use strict';
 
 // DOM Manipulation
-// console.log(document.querySelector('.message').textContent);
-// document.querySelector('.message').textContent = '🎉 Correct Number!';
 
-// document.querySelector('.number').textContent = 13;
-// document.querySelector('.score').textContent = 2;
-
-// console.log(document.querySelector('.guess').value);
-// document.querySelector('.guess').value = 23;
-// console.log(document.querySelector('.guess').value);
+//TODO Work on the logic on the scoring for the player
+//TODO Work on the again button and reset the game
+const number = Math.trunc(Math.random()*20)+1
+console.log(document.querySelector('.number').textContent = number);
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -19,4 +15,17 @@ document.querySelector('.check').addEventListener('click', function () {
   if (!guess) {
     document.querySelector('.message').textContent = 'No Number!!';
   }
+
+  else if (guess === number){
+    document.querySelector('.message').textContent = 'Correct Guess!';
+  }
+
+  else if (guess > number){
+    document.querySelector('.message').textContent = 'Too High!';
+  }
+
+  else if (guess < number){
+    document.querySelector('.message').textContent = 'Too Low!';
+  }
+
 });
