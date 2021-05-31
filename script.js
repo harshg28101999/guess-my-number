@@ -27,24 +27,9 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   }
 
-  // When guess is high
-  else if (guess > number){
+  else if (guess != number){
     if (score > 1){
-      document.querySelector('.message').textContent = 'Too High!';
-      score = score - 1
-      document.querySelector('.score').textContent = score
-    }
-    else {
-      document.querySelector('.message').textContent = 'You Loose!!';
-      document.querySelector('body').style.backgroundColor = '#FF0000'
-      document.querySelector('.score').textContent = 0
-    }
-  }
-
-  // When guess is low
-  else if (guess < number){
-    if (score > 0){
-      document.querySelector('.message').textContent = 'Too Low!!';
+      document.querySelector('.message').textContent = guess > number ?'Too High!!':'Too Low!!';
       score = score - 1
       document.querySelector('.score').textContent = score
     }
